@@ -3,6 +3,7 @@ package admin;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /* More work to be done on this class. */
@@ -42,8 +43,8 @@ public class Extractor {
 				{
 					temp = (Applicant) in.readObject();
 					if(temp == null) break;
-					Date temp2=temp.getTimestamp(); //Added
-					if(temp2.compareTo(lower)>=0 && temp2.compareTo(upper)<=0) list.add(temp); /* get_field() required */
+//					LoaclDate temp2=temp.getTimestamp(); //Added
+//					if(temp2.compareTo(lower)>=0 && temp2.compareTo(upper)<=0) list.add(temp); /* get_field() required */
 				}
 				catch(ClassNotFoundException ex) { }
 			}
@@ -87,12 +88,12 @@ public class Extractor {
 		flag = check_button(bEmail, ob.P.getEmail(), 0);
 		flag = check_button(bName, ob.P.getName(), 0);
 		flag = check_button(bENum, ob.enrollment_number/*.getENum()*/, 0);
-		flag = check_button(bCategory, Integer.toString(ob.P.getCategory()), 1);
+		flag = check_button(bCategory, ob.P.getCategory(), 1);
 		flag = check_button(bGender, Integer.toString(ob.P.getGender()), 0);
 		flag = check_button(bPhyDisabled, Integer.toString(ob.P.getPhysical()), 0);
 		if(bDOB.getFlag())
 		{
-			Date temp=ob.P.getDOB();
+			LocalDate temp=ob.P.getDOB();
 			if(bDOB.getOption().equals("Before") && temp.compareTo(ob.P.getDOB()) > 0) flag = false;
 			else if(bDOB.getOption().equals("On") && temp.compareTo(ob.P.getDOB()) != 0) flag = false;
 			else if(bDOB.getOption().equals("After") && temp.compareTo(ob.P.getDOB()) < 0) flag = false;
@@ -103,17 +104,17 @@ public class Extractor {
 	private boolean checkEI(Applicant ob)
 	{
 		boolean flag = true;
-		flag = check_button(bStream, ob.getStream(), 1);
-		flag = check_button(bGradDegree, ob.getGradDegree(), 1);
-		flag = check_button(bPostGradDegree, ob.getPostGradDegree(), 1);
-		flag = check_button(bX, ob.getXBoard(), 1);
-		flag = check_button(bXII, ob.getXIIBoard(), 1);
-		flag = check_button(bDepGrad, ob.getDepGrad(), 1);
-		flag = check_button(bDepPGrad, ob.getDepPGrad(), 1);
-		flag = check_button(bUnGrad, ob.getUnGrad(), 1);
-		flag = check_button(bUnPGrad, ob.getUnPGrad(), 1);
-		flag = check_button(bGState, ob.getGState(), 1);
-		flag = check_button(bPGState, ob.getPGState(), 1);
+		flag = check_button(bStream, ob.E.getStream(), 1);
+		flag = check_button(bGradDegree, ob.E.getGradDegree(), 1);
+		flag = check_button(bPostGradDegree, ob.E.getPostGradDegree(), 1);
+		flag = check_button(bX, ob.E.getXBoard(), 1);
+		flag = check_button(bXII, ob.E.getXIIBoard(), 1);
+		flag = check_button(bDepGrad, ob.E.getDepGrad(), 1);
+		flag = check_button(bDepPGrad, ob.E.getDepPGrad(), 1);
+		flag = check_button(bUnGrad, ob.E.getUnGrad(), 1);
+		flag = check_button(bUnPGrad, ob.E.getUnPGrad(), 1);
+		flag = check_button(bGState, ob.E.getGState(), 1);
+		flag = check_button(bPGState, ob.E.getPGState(), 1);
 		flag = checkPerc(ob);
 		return flag;
 	}
@@ -121,11 +122,11 @@ public class Extractor {
 	private boolean checkPerc(Applicant ob)
 	{
 		boolean flag = true;
-		flag = check_button(bXPerc, ob.getXPerc());
-		flag = check_button(bXIIPerc, ob.getXIIPerc());
-		flag = check_button(bGradPerc, ob.getGradPerc());
-		flag = check_button(bPGradXPerc, ob.getPGradPerc());
-		flag = check_button(bGATEPerc, ob.getGATEPerc());
+		flag = check_button(bXPerc, (double)ob.E.getXMarks());
+		flag = check_button(bXIIPerc, (double)ob.E.getXIIMarks());
+		flag = check_button(bGradPerc, (double)ob.E.getGradMarks());
+		flag = check_button(bPGradXPerc, (double)ob.E.getPGradMarks());
+		flag = check_button(bGATEPerc, (double)ob.E.getGATEMrks());
 		return flag;
 	}
 	
@@ -140,6 +141,6 @@ public class Extractor {
 	private void ShowResults()
 	{
 		for(Applicant ob : data) 
-			System.out.println(ob.getENum() + " " + ob.getName() /*+ " " + Link_to_data*/);
+			System.out.println(ob.enrollment_number + " " + ob.P.getName() /*+ " " + Link_to_data*/);
 	}
 }
