@@ -84,18 +84,18 @@ public class Extractor {
 	private boolean checkPI(Applicant ob)
 	{
 		boolean flag = true;
-		flag = check_button(bEmail, ob.getEmail(), 0);
-		flag = check_button(bName, ob.getName(), 0);
-		flag = check_button(bENum, ob.getENum(), 0);
-		flag = check_button(bCategory, ob.getCategory(), 1);
-		flag = check_button(bGender, ob.getGender(), 0);
-		flag = check_button(bPhyDisabled, ob.getPhysical(), 0);
+		flag = check_button(bEmail, ob.P.getEmail(), 0);
+		flag = check_button(bName, ob.P.getName(), 0);
+		flag = check_button(bENum, ob.enrollment_number/*.getENum()*/, 0);
+		flag = check_button(bCategory, Integer.toString(ob.P.getCategory()), 1);
+		flag = check_button(bGender, Integer.toString(ob.P.getGender()), 0);
+		flag = check_button(bPhyDisabled, Integer.toString(ob.P.getPhysical()), 0);
 		if(bDOB.getFlag())
 		{
-			Date temp=ob.getDOB();
-			if(bDOB.getOption().equals("Before") && !temp.compareTo(ob.getDOB()) < 0) flag = false;
-			else if(bDOB.getOption().equals("On") && !temp.compareTo(ob.getDOB()) == 0) flag = false;
-			else if(bDOB.getOption().equals("After") && !temp.compareTo(ob.getDOB()) > 0) flag = false;
+			Date temp=ob.P.getDOB();
+			if(bDOB.getOption().equals("Before") && temp.compareTo(ob.P.getDOB()) > 0) flag = false;
+			else if(bDOB.getOption().equals("On") && temp.compareTo(ob.P.getDOB()) != 0) flag = false;
+			else if(bDOB.getOption().equals("After") && temp.compareTo(ob.P.getDOB()) < 0) flag = false;
 		}
 		return flag;
 	}
