@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.collections.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="400.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Control">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="400.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.Control">
   <tabs>
     <Tab text="Personal Information">
       <content>
@@ -15,7 +15,7 @@
           <children>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
               <children>
-                <RadioButton fx:id="dobb" mnemonicParsing="false" text="Before">
+                <RadioButton fx:id="dobBefore" mnemonicParsing="false" text="Before">
                   <toggleGroup>
                     <ToggleGroup fx:id="dob" />
                   </toggleGroup>
@@ -23,17 +23,17 @@
                     <Insets />
                   </GridPane.margin>
                 </RadioButton>
-                <RadioButton fx:id="dobo" mnemonicParsing="false" text="On" toggleGroup="$dob">
+                <RadioButton fx:id="dobOn" mnemonicParsing="false" text="On" toggleGroup="$dob">
                   <GridPane.margin>
                     <Insets left="85.0" />
                   </GridPane.margin>
                 </RadioButton>
-                <RadioButton fx:id="doba" mnemonicParsing="false" text="After" toggleGroup="$dob">
+                <RadioButton fx:id="dobAfter" mnemonicParsing="false" text="After" toggleGroup="$dob">
                   <GridPane.margin>
                     <Insets left="150.0" />
                   </GridPane.margin>
                 </RadioButton>
-                        <DatePicker id="Dob_select" promptText="Date of Birth" GridPane.rowIndex="1">
+                        <DatePicker fx:id="Dob" promptText="Date of Birth" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets />
                            </GridPane.margin>
@@ -77,7 +77,7 @@
                 <Insets right="100.0" />
               </GridPane.margin>
             </TextField>
-            <RadioButton fx:id="genderm" mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <RadioButton fx:id="gendermale" mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.rowIndex="4">
               <toggleGroup>
                 <ToggleGroup fx:id="gender" />
               </toggleGroup>
@@ -85,22 +85,22 @@
                 <Insets />
               </GridPane.margin>
             </RadioButton>
-            <RadioButton fx:id="genderf" mnemonicParsing="false" text="Female" toggleGroup="$gender" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <RadioButton fx:id="genderfemale" mnemonicParsing="false" text="Female" toggleGroup="$gender" GridPane.columnIndex="1" GridPane.rowIndex="4">
               <GridPane.margin>
                 <Insets left="75.0" />
               </GridPane.margin>
             </RadioButton>
-            <RadioButton fx:id="disyes" mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <RadioButton fx:id="disabledy" mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="5">
               <toggleGroup>
                 <ToggleGroup fx:id="disabled" />
               </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="disno" mnemonicParsing="false" text="No" toggleGroup="$disabled" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <RadioButton fx:id="disabledn" mnemonicParsing="false" text="No" toggleGroup="$disabled" GridPane.columnIndex="1" GridPane.rowIndex="5">
               <GridPane.margin>
                 <Insets left="75.0" />
               </GridPane.margin>
             </RadioButton>
-			<ChoiceBox id="Category" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+			<ChoiceBox id="Category" fx:id="Category" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
 				<items>
 					<FXCollections fx:factory="observableArrayList">
 						<String fx:value="All" />
@@ -148,22 +148,22 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="University(Post Graduation)" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State (Graduation from)" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State (Post Graduation from)" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <TextField fx:id="UnivGrad" GridPane.columnIndex="1" GridPane.rowIndex="7">
               <GridPane.margin>
                 <Insets right="25.0" />
               </GridPane.margin>
             </TextField>
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <TextField fx:id="UnivPGrad" GridPane.columnIndex="1" GridPane.rowIndex="8">
               <GridPane.margin>
                 <Insets right="25.0" />
               </GridPane.margin>
             </TextField>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="11">
               <children>
-                <CheckBox mnemonicParsing="false" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                <TextArea maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XPercG" mnemonicParsing="false" onAction="#xscore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XPercE" mnemonicParsing="false" onAction="#xscore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XPercL" mnemonicParsing="false" onAction="#xscore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="XPerc" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
@@ -177,10 +177,10 @@
             </GridPane>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="15">
               <children>
-                <CheckBox mnemonicParsing="false" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                <TextArea maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Score" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GateScoreG" mnemonicParsing="false" onAction="#gatescore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GateScoreE" mnemonicParsing="false" onAction="#gatescore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GateScoreL" mnemonicParsing="false" onAction="#gatescore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="GateScore" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Score" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
@@ -194,10 +194,10 @@
             </GridPane>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="14">
               <children>
-                <CheckBox mnemonicParsing="false" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                <TextArea maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                <CheckBox fx:id="PGradPercG" mnemonicParsing="false" onAction="#pgradscore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="PGradPercE" mnemonicParsing="false" onAction="#pgradscore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="PGradPercL" mnemonicParsing="false" onAction="#pgradscore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="PGradPerc" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
@@ -211,10 +211,10 @@
             </GridPane>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="13">
               <children>
-                <CheckBox mnemonicParsing="false" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                <TextArea maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GradPercG" mnemonicParsing="false" onAction="#gradscore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GradPercE" mnemonicParsing="false" onAction="#gradscore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GradPercL" mnemonicParsing="false" onAction="#gradscore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="GradPerc" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
@@ -228,10 +228,10 @@
             </GridPane>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="12">
               <children>
-                <CheckBox mnemonicParsing="false" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                <CheckBox mnemonicParsing="false" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                <TextArea maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XIIPercG" mnemonicParsing="false" onAction="#xiiscore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XIIPercE" mnemonicParsing="false" onAction="#xiiscore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XIIPercL" mnemonicParsing="false" onAction="#xiiscore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="XIIPerc" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
@@ -243,14 +243,14 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-                  <ChoiceBox id="PGradState" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                  <ChoiceBox fx:id="PGradState" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
                   	<items>
         				<FXCollections fx:factory="observableArrayList">
             				<String fx:value="All" />
         				</FXCollections>
     				</items>
 				</ChoiceBox>
-                  <ChoiceBox id="PhdStream" layoutX="256.0" layoutY="376.0" prefWidth="150.0" GridPane.columnIndex="1">
+                  <ChoiceBox fx:id="PhdStream" layoutX="256.0" layoutY="376.0" prefWidth="150.0" GridPane.columnIndex="1">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
                            <String fx:value="All" />
@@ -259,7 +259,16 @@
                         </FXCollections>
                      </items>
                   </ChoiceBox>
-                  <ChoiceBox id="GradDegree" layoutX="256.0" layoutY="16.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <ChoiceBox fx:id="GradDegree" layoutX="256.0" layoutY="16.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="All" />
+                           <String fx:value="BSc" />
+                           <String fx:value="BTech" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <ChoiceBox fx:id="PGradDep" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
                            <String fx:value="All" />
@@ -268,7 +277,7 @@
                         </FXCollections>
                      </items>
                   </ChoiceBox>
-                  <ChoiceBox id="PGradDep" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <ChoiceBox fx:id="GradDep" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
                            <String fx:value="All" />
@@ -277,43 +286,48 @@
                         </FXCollections>
                      </items>
                   </ChoiceBox>
-                  <ChoiceBox id="GradDep" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-                     <items>
-                        <FXCollections fx:factory="observableArrayList">
-                           <String fx:value="All" />
-                           <String fx:value="ECE" />
-                           <String fx:value="CSE" />
-                        </FXCollections>
-                     </items>
-                  </ChoiceBox>
-                  <ChoiceBox id="XIIBoard" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <ChoiceBox fx:id="XIIBoard" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
                            <String fx:value="All" />
                            <String fx:value="CBSE" />
                            <String fx:value="ISCE" />
+                           <String fx:value="ISDE" />
+                           <String fx:value="APBSE" />
+                           <String fx:value="ABSE" />
+                           <String fx:value="BSEB" />
+                           <String fx:value="CBP" />
+                           <String fx:value="MSBSHSE" />
+                           <String fx:value="CGBSE" />
                         </FXCollections>
                      </items>
                   </ChoiceBox>
-                  <ChoiceBox id="XBoard" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <ChoiceBox fx:id="XBoard" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
                            <String fx:value="All" />
                            <String fx:value="CBSE" />
                            <String fx:value="ISCE" />
+                           <String fx:value="ISDE" />
+                           <String fx:value="APBSE" />
+                           <String fx:value="ABSE" />
+                           <String fx:value="BSEB" />
+                           <String fx:value="CBP" />
+                           <String fx:value="MSBSHSE" />
+                           <String fx:value="CGBSE" />
                         </FXCollections>
                      </items>
                   </ChoiceBox>
-                  <ChoiceBox id="PGradDegree" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <ChoiceBox fx:id="PGradDegree" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
-                           <String fx:value="ALL" />
-                           <String fx:value="ECE" />
-                           <String fx:value="CSE" />
+                           <String fx:value="All" />
+                           <String fx:value="BSc" />
+                           <String fx:value="BTech" />
                         </FXCollections>
                      </items>
                   </ChoiceBox>
-                  <ChoiceBox id="GradState" layoutX="256.0" layoutY="232.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                  <ChoiceBox fx:id="GradState" layoutX="256.0" layoutY="232.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                      <items>
                         <FXCollections fx:factory="observableArrayList">
                            <String fx:value="All" />
@@ -378,19 +392,19 @@
                               <Insets bottom="20.0" left="75.0" />
                            </GridPane.margin>
                         </Text>
-                        <DatePicker GridPane.columnIndex="1">
+                        <DatePicker fx:id="AppDatedFrom" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </DatePicker>
-                        <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <DatePicker fx:id="AppDatedUpto" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="20.0" />
                            </GridPane.margin>
                         </DatePicker>
                      </children>
                   </GridPane>
-                  <Button mnemonicParsing="false" onAction="#check" text="Show Filtered Results" GridPane.rowIndex="1">
+                  <Button fx:id="Results" mnemonicParsing="false" onAction="#Results" text="Show Filtered Results" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="275.0" left="75.0" />
                      </GridPane.margin>
