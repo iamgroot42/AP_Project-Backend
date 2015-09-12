@@ -33,7 +33,7 @@ public class Extractor {
 	public Extractor(LocalDate lower, LocalDate upper){ /*data = ReadData(lower, upper);*/ }
 	
 	/* Need to use Date-time (lower, upper) instead of int (lower, upper) */
-	public ArrayList<Applicant> ReadData(LocalDate lower, LocalDate upper) 
+	private ArrayList<Applicant> ReadData(LocalDate lower, LocalDate upper) 
 	{
 		System.out.println("here");
 		ObjectInputStream in = null;
@@ -86,7 +86,7 @@ public class Extractor {
 		return true;
 	}
 	
-	public boolean check(Applicant ob){ return checkPI(ob) && checkEI(ob); }
+	private boolean check(Applicant ob){ return checkPI(ob) && checkEI(ob); }
 	
 	private boolean checkPI(Applicant ob)
 	{
@@ -139,7 +139,7 @@ public class Extractor {
 		return flag;
 	}
 	
-	public void filter(String str)
+	private void filter(String str)
 	{
 		ArrayList<Applicant> tempList = new ArrayList<Applicant>();
 		for(Applicant ob : data) if(check(ob)) tempList.add(ob);

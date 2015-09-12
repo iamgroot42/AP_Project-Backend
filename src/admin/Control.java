@@ -248,23 +248,19 @@ public class Control {
     	filter();
     	return true;
     }
+    private boolean checkPerc(TextArea a)
+    {
+    	if(!a.getText().equals("") && 
+    	(Double.compare(Double.valueOf(a.getText()), 100) > 0 || 
+    	Double.compare(Double.valueOf(a.getText()), 0) < 0)) return false;
+    	return true;
+    }
     private boolean checkEI()
     {
-    	if(!GradPerc.getText().equals("") && 
-    	(Double.compare(Double.valueOf(GradPerc.getText()), 100) > 0 || 
-    	 Double.compare(Double.valueOf(GradPerc.getText()), 0) < 0)) return false;
-    	if(!PGradPerc.getText().equals("") && 
-    	(Double.compare(Double.valueOf(PGradPerc.getText()), 100) > 0 || 
-    	 Double.compare(Double.valueOf(PGradPerc.getText()), 0) < 0)) return false;
-    	if(!XPerc.getText().equals("") && 
-    	(Double.compare(Double.valueOf(XPerc.getText()), 100) > 0 || 
-    	 Double.compare(Double.valueOf(XPerc.getText()), 0) < 0)) return false;
-    	if(!XIIPerc.getText().equals("") && 
-    	(Double.compare(Double.valueOf(XIIPerc.getText()), 100) > 0 || 
-    	 Double.compare(Double.valueOf(XIIPerc.getText()), 0) < 0)) return false;
-    	if(!GateScore.getText().equals("") && 
-    	(Double.compare(Double.valueOf(GateScore.getText()), 100) > 0 || 
-    	 Double.compare(Double.valueOf(GateScore.getText()), 0) < 0)) return false;
+    	if((checkPerc(GradPerc) && checkPerc(PGradPerc) &&
+    	   checkPerc(XPerc) && checkPerc(XIIPerc) && 
+    	   checkPerc(GateScore)) == false) return false; 
+    	
     	String str = "";
     	if(XPercL.isSelected()) str += "Lesser";
     	else if(XPercG.isSelected()) str += "Greater";
@@ -292,57 +288,51 @@ public class Control {
 		ex.bGATEPerc =  new MyButton(GateScore.getText(), str, !GateScore.getText().equals(""));
     	return true;
     }
+    private MyButton InitButton(ChoiceBox<String> cb) { return new MyButton(cb.getValue(), cb.getValue() != null); }
+    private MyButton InitButton(TextField tf) { return new MyButton(tf.getText(), !tf.getText().equals("")); }
     private void filter()
     {   
-        ex.bX = new MyButton(XBoard.getValue(),XBoard.getValue() != null);
-        ex.bXII = new MyButton(XIIBoard.getValue(),XIIBoard.getValue() != null);
-        ex.bEmail = new MyButton(Email.getText(),!Email.getText().equals(""));
-        ex.bName = new MyButton(Name.getText(),!Name.getText().equals(""));
-        ex.bENum = new MyButton(ENum.getText(),!ENum.getText().equals(""));
-        ex.bCategory = new MyButton(Category.getValue(),Category.getValue() != null);
-        ex.bStream = new MyButton(XBoard.getValue(),XBoard.getValue() != null);
-        ex.bGradDegree = new MyButton(GradDegree.getValue(),GradDegree.getValue() != null);
-        ex.bPostGradDegree = new MyButton(PGradDegree.getValue(),PGradDegree.getValue() != null);
-        ex.bDepGrad = new MyButton(GradDep.getValue(),GradDep.getValue() != null);
-		ex.bDepPGrad = new MyButton(PGradDep.getValue(),PGradDep.getValue() != null); 
-		ex.bUnGrad =  new MyButton(UnivGrad.getText(),!UnivGrad.getText().equals(""));
-		ex.bUnPGrad =  new MyButton(UnivPGrad.getText(),!UnivPGrad.getText().equals(""));
-		ex.bGState =  new MyButton(GradState.getValue(),GradState.getValue() != null);
-		ex.bPGState =  new MyButton(PGradState.getValue(),PGradState.getValue() != null);
+        ex.bX = InitButton(XBoard);
+        ex.bXII = InitButton(XIIBoard);
+        ex.bGState =  InitButton(GradState);
+		ex.bPGState =  InitButton(PGradState);
+		ex.bCategory = InitButton(Category);
+        ex.bStream = InitButton(PhdStream);
+        ex.bGradDegree = InitButton(GradDegree);
+        ex.bPostGradDegree = InitButton(PGradDegree);
+        ex.bDepGrad = InitButton(GradDep);
+		ex.bDepPGrad = InitButton(PGradDep);
+		
+		ex.bEmail = InitButton(Email);
+        ex.bName = InitButton(Name);
+        ex.bENum = InitButton(ENum);
+		ex.bUnGrad =  InitButton(UnivGrad);
+		ex.bUnPGrad =  InitButton(UnivPGrad);
+		
 		System.out.println("DOB" + " " + ex.bDOB.getField() + " " + ex.bDOB.getFlag() + " " + ex.bDOB.getOption());
+    }
+    private String getTGValue(ToggleGroup g)
+    {
+    	String[] temp = g.getSelectedToggle().toString().split("[']+");
+    	return temp[temp.length-1];
     }
     private boolean checkPI()
     {
     	if(Dob.getValue() != null && Dob.getValue().compareTo(LocalDate.now()) > 0) return false;
     	if(gender.getSelectedToggle() != null)
-    	{
-    		if(gender.getSelectedToggle().toString().contains("Female"))
-    			ex.bGender = new MyButton("Female",true);
-    		if(gender.getSelectedToggle().toString().contains("Male"))
-    			ex.bGender = new MyButton("Male",true);
-    	}
-    	else ex.bGender = new MyButton("",false);
+    		ex.bGender = new MyButton(getTGValue(gender), true);
+    	else ex.bGender = new MyButton("", false);
+    	
     	if(disabled.getSelectedToggle() != null)
-    	{
-    		if(disabled.getSelectedToggle().toString().contains("Yes"))
-    			ex.bPhyDisabled = new MyButton("Yes",true);
-    		if(disabled.getSelectedToggle().toString().contains("No"))
-    			ex.bPhyDisabled = new MyButton("No",true);
-    	}
-    	else ex.bPhyDisabled = new MyButton("",false);
+    		ex.bPhyDisabled = new MyButton(getTGValue(disabled), true);
+    	else ex.bPhyDisabled = new MyButton("", false);
+    	
     	String str = ""; 
     	if(dob.getSelectedToggle() != null && Dob.getValue() ==  null) return false;
     	if(dob.getSelectedToggle() == null && Dob.getValue() !=  null) return false;
     	if(Dob.getValue() != null) str =  Dob.getValue().toString();
     	if(dob.getSelectedToggle() != null)
-    	{
-    		if(dob.getSelectedToggle().toString().contains("Before"))
-    			ex.bDOB = new MyButton(str, "Before", true);
-    		if(dob.getSelectedToggle().toString().contains("On"))
-    			ex.bDOB = new MyButton(str, "On", true);
-    		if(dob.getSelectedToggle().toString().contains("After"))
-    			ex.bDOB = new MyButton(str, "After", true);
-    	}
+    		ex.bDOB = new MyButton(str, getTGValue(dob), true);
     	else ex.bDOB = new MyButton(str, false);
     	return true;
     }
