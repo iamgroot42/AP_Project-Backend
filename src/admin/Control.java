@@ -175,7 +175,7 @@ public class Control {
     void gatescore(ActionEvent event) {
     	if(GateScoreG.isSelected()) { GateScoreL.setIndeterminate(true); GateScoreL.setDisable(true);}
     	else { GateScoreL.setIndeterminate(false); GateScoreL.setDisable(false); }
-    	if(GateScoreL.isSelected()) { GateScoreL.setIndeterminate(true); GateScoreG.setDisable(true);}
+    	if(GateScoreL.isSelected()) { GateScoreG.setIndeterminate(true); GateScoreG.setDisable(true);}
     	else { GateScoreG.setIndeterminate(false); GateScoreG.setDisable(false); }
     	System.out.println(GateScoreG.isSelected() + " " + GateScoreL.isSelected());
     }
@@ -184,7 +184,7 @@ public class Control {
     void gradscore(ActionEvent event) {
     	if(GradPercG.isSelected()) { GradPercL.setIndeterminate(true); GradPercL.setDisable(true);}
     	else { GradPercL.setIndeterminate(false); GradPercL.setDisable(false); }
-    	if(GradPercL.isSelected()) { GradPercL.setIndeterminate(true); GradPercG.setDisable(true);}
+    	if(GradPercL.isSelected()) { GradPercG.setIndeterminate(true); GradPercG.setDisable(true);}
     	else { GradPercG.setIndeterminate(false); GradPercG.setDisable(false); }
     	System.out.println(GradPercG.isSelected() + " " + GradPercL.isSelected());
     }
@@ -193,7 +193,7 @@ public class Control {
     void pgradscore(ActionEvent event) {
     	if(PGradPercG.isSelected()) { PGradPercL.setIndeterminate(true); PGradPercL.setDisable(true);}
     	else { PGradPercL.setIndeterminate(false); PGradPercL.setDisable(false); }
-    	if(PGradPercL.isSelected()) { PGradPercL.setIndeterminate(true); PGradPercG.setDisable(true);}
+    	if(PGradPercL.isSelected()) { PGradPercG.setIndeterminate(true); PGradPercG.setDisable(true);}
     	else { PGradPercG.setIndeterminate(false); PGradPercG.setDisable(false); }
     	System.out.println(PGradPercG.isSelected() + " " + PGradPercL.isSelected());
     }
@@ -202,7 +202,7 @@ public class Control {
     void xiiscore(ActionEvent event) {
     	if(XIIPercG.isSelected()) { XIIPercL.setIndeterminate(true); XIIPercL.setDisable(true);}
     	else { XIIPercL.setIndeterminate(false); XIIPercL.setDisable(false); }
-    	if(XIIPercL.isSelected()) { XIIPercL.setIndeterminate(true); XIIPercG.setDisable(true);}
+    	if(XIIPercL.isSelected()) { XIIPercG.setIndeterminate(true); XIIPercG.setDisable(true);}
     	else { XIIPercG.setIndeterminate(false); XIIPercG.setDisable(false); }
     	System.out.println(XIIPercG.isSelected() + " " + XIIPercL.isSelected());
     }
@@ -211,7 +211,7 @@ public class Control {
     void xscore(ActionEvent event) {
     	if(XPercG.isSelected()) { XPercL.setIndeterminate(true); XPercL.setDisable(true);}
     	else { XPercL.setIndeterminate(false); XPercL.setDisable(false); }
-    	if(XPercL.isSelected()) { XPercL.setIndeterminate(true); XPercG.setDisable(true);}
+    	if(XPercL.isSelected()) { XPercG.setIndeterminate(true); XPercG.setDisable(true);}
     	else { XPercG.setIndeterminate(false); XPercG.setDisable(false); }
     	System.out.println(XPercG.isSelected() + " " + XPercL.isSelected());
     }
