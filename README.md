@@ -1,2 +1,4 @@
 # AP_Project-Backend
-AP Project Backend (made with Satyam Kumar) 
+AP Project Backend (Satyam & Anshuman)
+-Backend : Satyam
+-Frontend : Anshuman
