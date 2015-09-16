@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="400.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.Control">
+  <tabs>
+    <Tab text="Personal Information">
+      <content>
+        <GridPane prefHeight="549.0" prefWidth="600.0">
+          <children>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+              <children>
+                <RadioButton fx:id="dobBefore" mnemonicParsing="false" text="Before">
+                  <toggleGroup>
+                    <ToggleGroup fx:id="dob" />
+                  </toggleGroup>
+                  <GridPane.margin>
+                    <Insets />
+                  </GridPane.margin>
+                </RadioButton>
+                <RadioButton fx:id="dobOn" mnemonicParsing="false" text="On" toggleGroup="$dob">
+                  <GridPane.margin>
+                    <Insets left="85.0" />
+                  </GridPane.margin>
+                </RadioButton>
+                <RadioButton fx:id="dobAfter" mnemonicParsing="false" text="After" toggleGroup="$dob">
+                  <GridPane.margin>
+                    <Insets left="150.0" />
+                  </GridPane.margin>
+                </RadioButton>
+                        <DatePicker fx:id="Dob" promptText="Date of Birth" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </DatePicker>
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="71.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+              <GridPane.margin>
+                <Insets />
+              </GridPane.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+              <GridPane.margin>
+                <Insets />
+              </GridPane.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enrollment Number" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Category" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Physically Disabled" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <TextField fx:id="Email" GridPane.columnIndex="1">
+              <GridPane.margin>
+                <Insets right="100.0" />
+              </GridPane.margin>
+            </TextField>
+            <TextField fx:id="Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <GridPane.margin>
+                <Insets right="100.0" />
+              </GridPane.margin>
+            </TextField>
+            <TextField fx:id="ENum" GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <GridPane.margin>
+                <Insets right="100.0" />
+              </GridPane.margin>
+            </TextField>
+            <RadioButton fx:id="gendermale" mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.rowIndex="4">
+              <toggleGroup>
+                <ToggleGroup fx:id="gender" />
+              </toggleGroup>
+              <GridPane.margin>
+                <Insets />
+              </GridPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="genderfemale" mnemonicParsing="false" text="Female" toggleGroup="$gender" GridPane.columnIndex="1" GridPane.rowIndex="4">
+              <GridPane.margin>
+                <Insets left="75.0" />
+              </GridPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="disabledy" mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="5">
+              <toggleGroup>
+                <ToggleGroup fx:id="disabled" />
+              </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="disabledn" mnemonicParsing="false" text="No" toggleGroup="$disabled" GridPane.columnIndex="1" GridPane.rowIndex="5">
+              <GridPane.margin>
+                <Insets left="75.0" />
+              </GridPane.margin>
+            </RadioButton>
+			<ChoiceBox id="Category" fx:id="Category" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+				<items>
+					<FXCollections fx:factory="observableArrayList">
+						<String fx:value="All" />
+						<String fx:value="General" />
+						<String fx:value="OBC" />
+						<String fx:value="SC" />
+						<String fx:value="ST" />
+					</FXCollections>
+				</items>
+			</ChoiceBox>
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="215.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="385.0" minWidth="10.0" prefWidth="385.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints maxHeight="75.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="74.0" minHeight="10.0" prefHeight="74.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="76.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="122.0" minHeight="10.0" prefHeight="122.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Education Information">
+      <content>
+        <GridPane>
+          <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phd Stream" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Graduation Degree" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Post Graduation Degree" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Class X Board" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Class XII Board" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Department(Graduation)" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Department(Post Graduation)" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Class X Board Percentage" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Class XII Board Percentage" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Graduation Marks Percentage" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Post Graduation Marks Percentage" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GATE Score" GridPane.halignment="CENTER" GridPane.rowIndex="15" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="University(Graduation)" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="University(Post Graduation)" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State (Graduation from)" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State (Post Graduation from)" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+            <TextField fx:id="UnivGrad" GridPane.columnIndex="1" GridPane.rowIndex="7">
+              <GridPane.margin>
+                <Insets right="25.0" />
+              </GridPane.margin>
+            </TextField>
+            <TextField fx:id="UnivPGrad" GridPane.columnIndex="1" GridPane.rowIndex="8">
+              <GridPane.margin>
+                <Insets right="25.0" />
+              </GridPane.margin>
+            </TextField>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="11">
+              <children>
+                <CheckBox fx:id="XPercG" mnemonicParsing="false" onAction="#xscore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XPercE" mnemonicParsing="false" onAction="#xscore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XPercL" mnemonicParsing="false" onAction="#xscore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="XPerc" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="61.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="83.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="67.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="15">
+              <children>
+                <CheckBox fx:id="GateScoreG" mnemonicParsing="false" onAction="#gatescore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GateScoreE" mnemonicParsing="false" onAction="#gatescore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GateScoreL" mnemonicParsing="false" onAction="#gatescore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="GateScore" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Score" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="61.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="83.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="67.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="14">
+              <children>
+                <CheckBox fx:id="PGradPercG" mnemonicParsing="false" onAction="#pgradscore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="PGradPercE" mnemonicParsing="false" onAction="#pgradscore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="PGradPercL" mnemonicParsing="false" onAction="#pgradscore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="PGradPerc" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="61.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="83.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="67.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="13">
+              <children>
+                <CheckBox fx:id="GradPercG" mnemonicParsing="false" onAction="#gradscore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GradPercE" mnemonicParsing="false" onAction="#gradscore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="GradPercL" mnemonicParsing="false" onAction="#gradscore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="GradPerc" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="61.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="83.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="67.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="12">
+              <children>
+                <CheckBox fx:id="XIIPercG" mnemonicParsing="false" onAction="#xiiscore" prefWidth="92.0" text="Greater than" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XIIPercE" mnemonicParsing="false" onAction="#xiiscore" text="Equals" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <CheckBox fx:id="XIIPercL" mnemonicParsing="false" onAction="#xiiscore" text="Lesser than" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextArea fx:id="XIIPerc" maxHeight="27.0" maxWidth="67.0" minHeight="27.0" minWidth="67.0" pickOnBounds="false" prefHeight="27.0" prefWidth="67.0" promptText="Percent" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.0" minWidth="10.0" prefWidth="89.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="61.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="83.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="67.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+                  <ChoiceBox fx:id="PGradState" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+                  	<items>
+        				<FXCollections fx:factory="observableArrayList">
+            				<String fx:value="All" />
+        				</FXCollections>
+    				</items>
+				</ChoiceBox>
+                  <ChoiceBox fx:id="PhdStream" layoutX="256.0" layoutY="376.0" prefWidth="150.0" GridPane.columnIndex="1">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="All" />
+                           <String fx:value="ECE" />
+                           <String fx:value="CSE" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <ChoiceBox fx:id="GradDegree" layoutX="256.0" layoutY="16.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="All" />
+                           <String fx:value="BSc" />
+                           <String fx:value="BTech" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <ChoiceBox fx:id="PGradDep" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="All" />
+                           <String fx:value="ECE" />
+                           <String fx:value="CSE" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <ChoiceBox fx:id="GradDep" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="All" />
+                           <String fx:value="ECE" />
+                           <String fx:value="CSE" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <ChoiceBox fx:id="XIIBoard" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="All" />
+                           <String fx:value="CBSE" />
+                           <String fx:value="ISCE" />
+                           <String fx:value="ISDE" />
+                           <String fx:value="APBSE" />
+                           <String fx:value="ABSE" />
+                           <String fx:value="BSEB" />
+                           <String fx:value="CBP" />
+                           <String fx:value="MSBSHSE" />
+                           <String fx:value="CGBSE" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <ChoiceBox fx:id="XBoard" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="All" />
+                           <String fx:value="CBSE" />
+                           <String fx:value="ISCE" />
+                           <String fx:value="ISDE" />
+                           <String fx:value="APBSE" />
+                           <String fx:value="ABSE" />
+                           <String fx:value="BSEB" />
+                           <String fx:value="CBP" />
+                           <String fx:value="MSBSHSE" />
+                           <String fx:value="CGBSE" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <ChoiceBox fx:id="PGradDegree" layoutX="256.0" layoutY="52.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="All" />
+                           <String fx:value="BSc" />
+                           <String fx:value="BTech" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <ChoiceBox fx:id="GradState" layoutX="256.0" layoutY="232.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="All" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="246.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="354.0" minWidth="10.0" prefWidth="354.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </content>
+    </Tab>
+    <Tab text="Submit">
+         <content>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="278.0" minHeight="10.0" prefHeight="171.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="400.0" minHeight="10.0" prefHeight="400.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane prefHeight="134.0" prefWidth="600.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applications Dated from" wrappingWidth="129.90234375">
+                           <GridPane.margin>
+                              <Insets left="75.0" top="20.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <Text layoutX="60.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Applications Dated Upto" wrappingWidth="134.90234375" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="20.0" left="75.0" />
+                           </GridPane.margin>
+                        </Text>
+                        <DatePicker fx:id="AppDatedFrom" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets top="20.0" />
+                           </GridPane.margin>
+                        </DatePicker>
+                        <DatePicker fx:id="AppDatedUpto" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="20.0" />
+                           </GridPane.margin>
+                        </DatePicker>
+                     </children>
+                  </GridPane>
+                  <Button fx:id="Results" mnemonicParsing="false" onAction="#Results" text="Show Filtered Results" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="275.0" left="75.0" />
+                     </GridPane.margin>
+                  </Button>
+               </children>
+            </GridPane>
+         </content>
+    </Tab>
+  </tabs>
+</TabPane>
