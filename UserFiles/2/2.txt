@@ -1,0 +1,68 @@
+Enrollment Number : 2
+Timestamp : 2015-09-16
+
+PERSONAL DETAILS:
+Email : sdfs@gg.com
+Name : fsd
+Address of Correspondence : fsdf
+Mobile : 9898989898
+PhD Stream : Computer Science
+PhD Preference 1 : Software Engineering - CSE
+PhD Preference 2 : Software Engineering - CSE
+PhD Preference 3 : Wireless Networks - CSE
+Gender : Male
+Category : SC
+Physically Disabled : Yes
+Date of Birth : 2015-09-01
+Children/War Widows of Defence Personnel wounded/killed in war : No
+Father's Name : aadf
+Nationality : PotatoLand
+Permanent Address : afdsadf
+Pincode : 234
+
+SCHOOLING DETAILS:
+Xth Board : adf
+Xth Marks : 12.0
+Year of Passing Xth : 2005
+XIIth Board : adfasdf
+XIIth Marks : 12.0
+Year of Passing XIIth : 2003
+
+GRADUATION DETAILS:
+Degree : adfsd
+Department/Discipline : fsdf
+College : sdf
+University : sdf
+City : sdf
+State : Madhya Pradesh
+Year of Graduation : 1993
+CGPA : 3.0/4
+
+ECE PhD
+Preference 1 : Embedded Systems
+Preference 2 : Digital Communications
+Preference 3 : Digital VLSI Design
+Preference 4 : Communication Networks
+
+POST GRADUATION
+College : jh,,
+City : ghkjg
+State : Goa
+Department/Discipline : nmgm,
+Thesis title : m,nb
+Year of Post-Graduation : 1999
+
+OTHER DEGREE
+Exam Name : adasdasda
+Subject : asdasd
+Year : 1998
+Score : 99
+Rank : 99
+
+Area : jh;kj
+Year : 1998
+Marks : 98.0/100
+Score : 700.0
+Rank : 78
+
+Achievements :sdfsgsg
