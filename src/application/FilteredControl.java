@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -29,36 +30,36 @@ public class FilteredControl {
     private TableColumn<TableEntry, String> EnID;
 
     @FXML
-    private TableColumn<TableEntry, String> Link;
+    private TableColumn<TableEntry, Button> Link;
     
     @FXML
-    private TableColumn<TableEntry, String> CVLink;
+    private TableColumn<TableEntry, Button> CVLink;
 
     @FXML
-    private TableColumn<TableEntry, String> SOPLink;
+    private TableColumn<TableEntry, Button> SOPLink;
 
     @FXML
     void BackToFilters(ActionEvent event) {
     	primaryStage.setScene(scene);
-        primaryStage.setTitle("PhD Admissions Admin Portal");
+    	primaryStage.setTitle("PhD Admissions Admin Portal");
     }
     
     @FXML
     void initialize() {
     	Link.setCellValueFactory(
-    			new PropertyValueFactory<TableEntry,String>("Link")
+    			new PropertyValueFactory<TableEntry, Button>("Link")
 	        );
     	EnID.setCellValueFactory(
-    			new PropertyValueFactory<TableEntry,String>("EnrollmentID")
+    			new PropertyValueFactory<TableEntry, String>("EnrollmentID")
 	        );
     	Name.setCellValueFactory(
-	            new PropertyValueFactory<TableEntry,String>("Name")
+	            new PropertyValueFactory<TableEntry, String>("Name")
 	        );
     	CVLink.setCellValueFactory(
-    			new PropertyValueFactory<TableEntry,String>("CVLink")
+    			new PropertyValueFactory<TableEntry, Button>("CVLink")
     	    );
     	SOPLink.setCellValueFactory(
-    			new PropertyValueFactory<TableEntry,String>("SOPLink")
+    			new PropertyValueFactory<TableEntry, Button>("SOPLink")
     	    );
     }
     void setTableData(ArrayList<TableEntry> data) {

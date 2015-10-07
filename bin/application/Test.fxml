@@ -35,7 +35,7 @@
                           <Insets left="150.0" />
                         </GridPane.margin>
                       </RadioButton>
-                              <DatePicker fx:id="Dob" promptText="Date of Birth" GridPane.rowIndex="1">
+                              <DatePicker fx:id="Dob" editable="false" promptText="Date of Birth" GridPane.rowIndex="1">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
@@ -263,8 +263,9 @@
                            <items>
                               <FXCollections fx:factory="observableArrayList">
                                  <String fx:value="All" />
-                                 <String fx:value="ECE" />
-                                 <String fx:value="CSE" />
+                                 <String fx:value="Electronics and Communication" />
+                                 <String fx:value="Computer Science" />
+                                 <String fx:value="Computational Biology" />
                               </FXCollections>
                            </items>
                         </ChoiceBox>
@@ -317,8 +318,8 @@
                            <items>
                               <FXCollections fx:factory="observableArrayList">
                                  <String fx:value="All" />
-                                 <String fx:value="BSc" />
-                                 <String fx:value="BTech" />
+                                 <String fx:value="MSc" />
+                                 <String fx:value="MTech" />
                               </FXCollections>
                            </items>
                         </ChoiceBox>
@@ -386,12 +387,12 @@
                                     <Insets />
                                  </GridPane.margin>
                               </Text>
-                              <DatePicker fx:id="AppDatedFrom" prefHeight="25.0" prefWidth="203.0" GridPane.columnIndex="1" GridPane.valignment="CENTER">
+                              <DatePicker fx:id="AppDatedFrom" editable="false" prefHeight="25.0" prefWidth="203.0" GridPane.columnIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>
                               </DatePicker>
-                              <DatePicker fx:id="AppDatedUpto" prefHeight="25.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                              <DatePicker fx:id="AppDatedUpto" editable="false" prefHeight="25.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                  <GridPane.margin>
                                     <Insets />
                                  </GridPane.margin>

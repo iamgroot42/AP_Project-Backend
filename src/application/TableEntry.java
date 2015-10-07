@@ -48,51 +48,21 @@ public class TableEntry {
          
 	}
 
-	public String getEnrollmentID()
-	{
-		return EnrollmentID.get();
-	}
+	public String getEnrollmentID(){ return EnrollmentID.get(); }
 
-	public String getName()
-	{
-		return Name.get();
-	}
+	public String getName() { return Name.get(); }
 
-	public void setEnrollmentID(String EnrollmentID)
-	{
-		this.EnrollmentID.set(EnrollmentID);
-	}
+	public void setEnrollmentID(String EnrollmentID) { this.EnrollmentID.set(EnrollmentID); }
 
-	public void setName(String Name)
-	{
-		this.Name.set(Name);
-	}
+	public void setName(String Name) { this.Name.set(Name); }
 	
-	public Button getLink()
-	{
-		return Link;
-	}
+	public Button getLink() { return Link; }
 	
-	public void setLink(Button Link)
-	{
-		this.Link = Link;
-	}
-	public Button getCVLink()
-	{
-		return CVLink;
-	}
+	public void setLink(Button Link) { this.Link = Link; }
+	public Button getCVLink() { return CVLink; }
 	
-	public void setCVLink(Button CVLink)
-	{
-		this.CVLink = CVLink;
-	}
-	public Button getSOPLink()
-	{
-		return SOPLink;
-	}
+	public void setCVLink(Button CVLink) { this.CVLink = CVLink; }
+	public Button getSOPLink() { return SOPLink; }
 	
-	public void setSOPLink(Button SOPLink)
-	{
-		this.SOPLink = SOPLink;
-	}
+	public void setSOPLink(Button SOPLink) { this.SOPLink = SOPLink; }
 }

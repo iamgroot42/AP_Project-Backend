@@ -1,5 +1,7 @@
 package application;
 	
+import java.util.Scanner;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -23,7 +25,22 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("PhD Admissions Admin Portal");
 			primaryStage.show();
-			
+			Scanner in=new Scanner(System.in);
+			while(true)
+			{
+				System.out.println("Want to read from CSV Database? (Y/N)");
+				String input=in.nextLine();
+				if(input.equals("Y"))
+				{
+					csvReader x=new csvReader(); //Loading data
+					break;					
+				}
+				else if(input.equals("N"))
+				{
+					//Read from already-present data
+					break;
+				}
+			}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

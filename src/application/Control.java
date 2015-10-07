@@ -238,8 +238,20 @@ public class Control {
 
     @FXML
     void Results(ActionEvent event) {
-    	if(AppDatedFrom.getValue() != null && AppDatedFrom.getValue().compareTo(LocalDate.now()) > 0) {
+    	if(AppDatedFrom.getValue() == null || AppDatedUpto.getValue() == null) {
+    		ResultsValidate.setText("Please enter the Interval.");
+    		ResultsValidate.setVisible(true);
+    	}
+    	else if(AppDatedFrom.getValue() != null && AppDatedFrom.getValue().compareTo(LocalDate.now()) > 0) {
     		ResultsValidate.setText("'From' field shouldn't be in future!");
+    		ResultsValidate.setVisible(true);
+    	}
+    	else if(AppDatedFrom.getValue().compareTo(AppDatedUpto.getValue()) > 0) {
+    		ResultsValidate.setText("Wrong Interval!");
+    		ResultsValidate.setVisible(true);
+    	}
+    	else if(AppDatedUpto.getValue().compareTo(LocalDate.now()) > 0) {
+    		ResultsValidate.setText("'Upto' field shouldn't be in future!");
     		ResultsValidate.setVisible(true);
     	}
     	else if(AppDatedFrom.getValue() != null && AppDatedUpto.getValue() != null){
@@ -250,10 +262,6 @@ public class Control {
     			System.out.println("Yo");
     			filter();
     		}
-    	}
-    	else {
-    		ResultsValidate.setText("Please enter the Interval.");
-    		ResultsValidate.setVisible(true);
     	}
     }
 
@@ -352,35 +360,35 @@ public class Control {
     	else if(XPercG.isSelected()) str += "Greater";
     	if(XPercE.isSelected()) str += "Equals";
     	if(!checkPerc(XPerc, str.equals(""), 0)) return false;
-    	ex.bXPerc =  new MyButton(XPerc.getText(), str, (!XPerc.getText().equals("") && !str.equals("")));
+    	ex.bXPerc =  new MyButton(XPerc.getText().toLowerCase(), str, (!XPerc.getText().equals("") && !str.equals("")));
     	str = "";
     	if(XIIPercL.isSelected()) str += "Lesser";
     	else if(XIIPercG.isSelected()) str += "Greater";
     	if(XIIPercE.isSelected()) str += "Equals";
     	if(!checkPerc(XIIPerc, str.equals(""), 0)) return false;
-    	ex.bXIIPerc =  new MyButton(XIIPerc.getText(), str, (!XIIPerc.getText().equals("") && !str.equals("")));
+    	ex.bXIIPerc =  new MyButton(XIIPerc.getText().toLowerCase(), str, (!XIIPerc.getText().equals("") && !str.equals("")));
 		str = "";
 		if(GradPercL.isSelected()) str += "Lesser";
     	else if(GradPercG.isSelected()) str += "Greater";
     	if(GradPercE.isSelected()) str += "Equals";
     	if(!checkPerc(GradPerc, str.equals(""), 0)) return false;
-		ex.bGradPerc =  new MyButton(GradPerc.getText(), str, (!GradPerc.getText().equals("") && !str.equals("")));
+		ex.bGradPerc =  new MyButton(GradPerc.getText().toLowerCase(), str, (!GradPerc.getText().equals("") && !str.equals("")));
 		str = "";
 		if(PGradPercL.isSelected()) str += "Lesser";
     	else if(PGradPercG.isSelected()) str += "Greater";
     	if(PGradPercE.isSelected()) str += "Equals";
     	if(!checkPerc(PGradPerc, str.equals(""), 0)) return false;
-		ex.bPGradXPerc =  new MyButton(PGradPerc.getText(), str, (!PGradPerc.getText().equals("") && !str.equals("")));
+		ex.bPGradXPerc =  new MyButton(PGradPerc.getText().toLowerCase(), str, (!PGradPerc.getText().equals("") && !str.equals("")));
 		str = "";
 		if(GateScoreL.isSelected()) str += "Lesser";
     	else if(GateScoreG.isSelected()) str += "Greater";
     	if(GateScoreE.isSelected()) str += "Equals";
     	if(!checkPerc(GateScore, str.equals(""), 1)) return false;
-		ex.bGATEPerc =  new MyButton(GateScore.getText(), str, (!GateScore.getText().equals("") && !str.equals("")));
+		ex.bGATEPerc =  new MyButton(GateScore.getText().toLowerCase(), str, (!GateScore.getText().equals("") && !str.equals("")));
     	return true;
     }
-    private MyButton InitButton(ChoiceBox<String> cb) { return new MyButton(cb.getValue(), cb.getValue() != null); }
-    private MyButton InitButton(TextField tf) { return new MyButton(tf.getText(), !tf.getText().equals("")); }
+    private MyButton InitButton(ChoiceBox<String> cb) { return new MyButton(cb.getValue().toLowerCase(), cb.getValue() != null); }
+    private MyButton InitButton(TextField tf) { return new MyButton(tf.getText().toLowerCase(), !tf.getText().equals("")); }
     private void filter()
     {   
         ex.bX = InitButton(XBoard);
@@ -394,7 +402,7 @@ public class Control {
         ex.bDepGrad = InitButton(GradDep);
 		ex.bDepPGrad = InitButton(PGradDep);
 		
-		ex.bEmail = InitButton(Email);
+		ex.bEmail = new MyButton(Email.getText(), !Email.getText().equals(""));//InitButton(Email);
 		System.out.println("1 " + Email.getText() + " " + !Email.getText().equals(""));
         ex.bName = InitButton(Name);
         ex.bENum = InitButton(ENum);
@@ -413,7 +421,7 @@ public class Control {
 					ob.getValue().replace(".txt", "_SOP.pdf"), ob.getValue().replace(".txt", "_CV.pdf")));
 		controller.setTableData(tabledata);
 		primaryStage.setScene(scene);
-        primaryStage.setTitle("Filtered Results");
+		primaryStage.setTitle("Filtered Results");
 		}
 		catch(IOException ex) {System.out.println("caught");}
     }

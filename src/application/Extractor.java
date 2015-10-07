@@ -41,8 +41,9 @@ public class Extractor {
 		ArrayList<Pair<Model, String> > list = new ArrayList<Pair<Model, String> >();
 		try 
 		{ 
-			File AppFolder = new File("C:/Users/Satyam/workspace/Final_Back/UserFiles");
+			File AppFolder = new File("UserFiles");
 			File[] ListOfDirectories = AppFolder.listFiles();
+			System.out.println(AppFolder.listFiles());
 			for(File Dir : ListOfDirectories)
 			{
 				if(Dir.isDirectory())
@@ -71,11 +72,11 @@ public class Extractor {
 				}
 			}
 		}
-		catch(IOException ex) { System.out.println("here No Database!"); }
+		catch(Exception ex) { System.out.println("1here No Database!"); }
 		finally 
 		{ 
 			try { if(in != null) in.close(); }
-			catch(IOException ex) { System.out.println("here No Database!"); }
+			catch(IOException ex) { System.out.println("2here No Database!"); }
 		}
 		return list;
 	}
@@ -83,9 +84,9 @@ public class Extractor {
 	private boolean check_button(MyButton b, String str, int mode)
 	{
 		if(mode == 1)
-			{if(b.getFlag() && !b.getField().equals("All") && !b.getField().equals(str)) return false;}
+			{if(b.getFlag() && !b.getField().equals("all") && !b.getField().equals(str.toLowerCase())) return false;}
 		else
-			{if(b.getFlag() && !b.getField().equals(str)) return false;}
+			{if(b.getFlag() && !b.getField().equals(str.toLowerCase())) return false;}
 		return true;
 	}
 	
@@ -137,24 +138,28 @@ public class Extractor {
 	}
 	private String changephd(int i)
 	{
-		if(i == 1) return "CSE";
-		else if(i == 2) return "ECE";
-		else return "BT";
+		if(i == 1) return "Computer Science";
+		else if(i == 2) return "Electronics and Communication";
+		else return "Computational Biology";
 	}
 	private boolean checkEI(Model ob)
 	{
 		boolean flag = true;
 		flag &= check_button(bStream, changephd(ob.getP().getPhd_stream()), 1);
 		flag &= check_button(bGradDegree, ob.getE().getDegree(), 1);
-		flag &= check_button(bPostGradDegree, ob.getE().getPG().getDegree(), 1);
+		if(ob.getE().getPG() == null && bPGradXPerc.getFlag()) flag &= false;
+		else if(ob.getE().getPG() == null && !bPGradXPerc.getFlag()) flag &= true;
+		else {
+			flag &= check_button(bPostGradDegree, ob.getE().getPG().getDegree(), 1);
+			flag &= check_button(bDepPGrad, ob.getE().getPG().getDepartment(), 1);
+			flag &= check_button(bUnPGrad, ob.getE().getPG().getCollege(), 1);
+			flag &= check_button(bPGState, ob.getE().getPG().getState(), 1);
+		}
 		flag &= check_button(bX, ob.getE().getX_board(), 1);
 		flag &= check_button(bXII, ob.getE().getXii_board(), 1);
 		flag &= check_button(bDepGrad, ob.getE().getDepartment(), 1);
-		flag &= check_button(bDepPGrad, ob.getE().getPG().getDepartment(), 1);
 		flag &= check_button(bUnGrad, ob.getE().getUniversity(), 1);
-		flag &= check_button(bUnPGrad, ob.getE().getPG().getCollege(), 1);
 		flag &= check_button(bGState, ob.getE().getState() , 1);
-		flag &= check_button(bPGState, ob.getE().getPG().getState(), 1);
 		flag &= checkPerc(ob);
 		return flag;
 	}
