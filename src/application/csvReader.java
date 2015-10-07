@@ -33,4 +33,19 @@ public class csvReader {
 				System.out.println("Wrong File!");
 			}
 		}
+		public int aloo(String x,int i)
+		{
+			if(i==11 || i==13 || i==32 || i==37 || i==52)
+			{
+				if(x.equals("Yes"))
+				{
+					return 1;
+				}
+				else if(x.equals("No"))
+				{
+					return 0;
+				}
+			}
+			return -1;
+		}
 }
