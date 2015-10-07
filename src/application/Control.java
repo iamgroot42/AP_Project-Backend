@@ -413,6 +413,7 @@ public class Control {
 					ob.getValue().replace(".txt", "_SOP.pdf"), ob.getValue().replace(".txt", "_CV.pdf")));
 		controller.setTableData(tabledata);
 		primaryStage.setScene(scene);
+        primaryStage.setTitle("Filtered Results");
 		}
 		catch(IOException ex) {System.out.println("caught");}
     }

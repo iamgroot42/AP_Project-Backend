@@ -40,6 +40,7 @@ public class FilteredControl {
     @FXML
     void BackToFilters(ActionEvent event) {
     	primaryStage.setScene(scene);
+        primaryStage.setTitle("PhD Admissions Admin Portal");
     }
     
     @FXML

@@ -21,6 +21,7 @@ public class Main extends Application {
 			TableEntry.host = getHostServices();
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("PhD Admissions Admin Portal");
 			primaryStage.show();
 			
 		} catch(Exception e) {
