@@ -61,8 +61,9 @@ public class csvReader {
 			CSVReader reader = new CSVReader(new FileReader("Data_to_Import.csv"));
 			List<String[]> myEntries = reader.readAll();
 			reader.close();
-			for(String[] l : myEntries) 
+			for(int i = 1; i < myEntries.size(); i++) 
 			{
+				String[] l = myEntries.get(i);
 				p.setEmail(l[0]);
 				p.setName(l[1]);
 				p.setAdd_correspondence(l[2]);
@@ -70,11 +71,11 @@ public class csvReader {
 				p.setPhd_stream(aloo(l[4], 5));
 				String temp[] = {l[5], l[6], l[7]};
 				p.setPreference(temp);
-				p.setGender(aloo(l[8], 9)== 1);
+				p.setGender(aloo(l[8], 9) == 1);
 				p.setCategory(l[9]);
 				p.setPhysically_disabled(aloo(l[10], 11) == 1);
 				temp = l[11].split("[-/]+");
-				if(temp.length < 3) { 
+				if(temp.length >= 3) { 
 					p.setDate_of_birth(new Date(Integer.parseInt(temp[2]), 
 							Integer.parseInt(temp[1]),
 							Integer.parseInt(temp[0])).toLocalDate());
@@ -90,7 +91,7 @@ public class csvReader {
 				e.setXii_board(l[20]);
 				e.setXii_marks(Float.parseFloat(l[21]));
 				e.setXii_year(Integer.parseInt(l[22]));
-				e.setDegree(l[23]);
+				e.setDegree(l[23].split("[.]+")[0] + l[23].split("[.]+")[1]);
 				e.setDepartment(l[24]);
 				e.setCollege(l[25]);
 				e.setUniversity(l[26]);
@@ -111,7 +112,7 @@ public class csvReader {
 				e.setGiven_gate(aloo(l[51],52) ==1 );
 				e.setOther_degree(aloo(l[45],46) == 1);
 				model.setEnrollment_number(l[59].substring(3)); //'PHD' not part of enrollment number
-				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd hh:mm:ss");
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MMM-dd kk:mm:ss");
 				model.setTimestamp(LocalDate.parse(l[58],formatter));				
 				e.setAchievements(l[57]);
 				if(aloo(l[51],52)==1)
@@ -137,7 +138,7 @@ public class csvReader {
 				if(aloo(l[36],37)==1)
 				{
 					Post_Graduate gogo=new Post_Graduate();
-					gogo.setDegree(l[37]);
+					gogo.setDegree(l[37].split("[.]+")[0] + l[37].split("[.]+")[1]);
 					gogo.setDepartment(l[38]);
 					gogo.setCollege(l[39]);
 					gogo.setTitle(l[40]);
@@ -167,6 +168,8 @@ public class csvReader {
 					gogo.setPreferences(tmp);
 					e.setE(gogo);
 				}
+				model.setP(p);
+				model.setE(e);
 				this.closer(); //Save file in our desired format
 			}
 		}
@@ -376,5 +379,9 @@ public class csvReader {
 			e.printStackTrace();
 			System.out.println("Could not make .txt file");
 		}
+	}
+	
+	public static void main(String[] args) {
+		csvReader ex = new csvReader();
 	}
 }
